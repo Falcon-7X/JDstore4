@@ -1,6 +1,15 @@
 <div class="row">
   <div class="col-md-12">
 
+    <%= link_to("清空购物车", clean_carts_path ,
+                method: :delete , class: " btn btn-md btn-info pull-right",
+                style: "text-decoration: underline;",
+                data: { confirm: "你确定要清空整个购物车吗？"} )%>
+
+    <div class="checkout clearfix">
+      <%= link_to("确认结账", "#", method: :post, class: "btn btn-md btn-danger pull-right") %>
+    </div>
+
     <h2> 购物车 </h2>
 
     <table class="table table-bordered">
@@ -44,7 +53,7 @@
     <div class="total clearfix">
       <span class="pull-right">
          <span>
-          总计 <%= render_cart_total_price(current_cart) %> RMB  
+          总计 <%= render_cart_total_price(current_cart) %> RMB
          </span>
       </span>
     </div>
