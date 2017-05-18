@@ -6,7 +6,7 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th width="80%">商品明细</th>
+          <th width="60%">商品明细</th>
           <th>单价</th>
           <th>数量</th>
         </tr>
@@ -19,7 +19,7 @@
               <%= link_to(cart_item.product.title, product_path(cart_item.product)) %>
             </td>
             <td>
-              <%= cart_items.product.price %>
+              <%= cart_item.product.price %>
             </td>
             <td>
               <%= cart_item.quantity %>
@@ -38,7 +38,7 @@
     <hr>
 
     <div class="order-form">
-      <%= simple_form_for @oder do |f|%>
+      <%= simple_form_for @order do |f|%>
 
         <legend>订购人</legend>
         <div class="form-group col-lg-6">
@@ -55,7 +55,13 @@
         <div class="form-group col-lg-6">
           <%= f.input :shipping_address %>
         </div>
-      <% end %>  
+
+        <div class="checkout">
+          <%= f.submit "提交订单", class: "btn btn-lg btn-danger pull-right",
+                          data:  { disable_with: "订单提交中..." } %>
+
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
