@@ -10,7 +10,7 @@
       <th>Name</th>
       <th>Price</th>
       <th>quantity</th>
-      <th width="100"> Options</th>
+      <th width="200"> Options</th>
     </tr>
   </thead>
   <tbody>
@@ -38,7 +38,11 @@
           <%= product.quantity %>
         </td>
         <td>
-          <%= link_to("Edit", edit_admin_product_path(product)) %>
+          <%= link_to("编辑", edit_admin_product_path(product), class: "btn btn-sm btn-danger") %>
+          |
+          <%= link_to("向上", move_up_admin_product_path(product), method: :patch, class: "btn btn-sm btn-info") %>
+          |
+          <%= link_to("向下", move_down_admin_product_path(product), method: :patch, class: "btn btn-sm btn-info") %>
         </td>
       </tr>
     <% end %>
