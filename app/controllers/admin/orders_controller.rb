@@ -12,28 +12,34 @@ class Admin::OrdersController < ApplicationController
     @product_lists = @order.product_lists
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to :back, alert: "已删除此订单"
+  end
+
   def cancel
     @order = Order.find(params[:id])
     @order.cancel_order!
-    redirect :back
+    redirect_to :back
   end
 
   def ship
     @order = Order.find(params[:id])
     @order.ship!
-    redirect :back
+    redirect_to :back
   end
 
   def shipped
     @order = Order.find(params[:id])
     @order.deliver!
-    redirect :back
+    redirect_to :back
   end
 
   def return
     @order = Order.find(params[:id])
     @order.return_good!
-    redirect :back
+    redirect_to :back
   end
 
 end
