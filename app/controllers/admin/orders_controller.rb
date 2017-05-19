@@ -9,6 +9,31 @@ class Admin::OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @product_lists = @order.product_lists 
+    @product_lists = @order.product_lists
   end
+
+  def cancel
+    @order = Order.find(params[:id])
+    @order.cancel_order!
+    redirect :back
+  end
+
+  def ship
+    @order = Order.find(params[:id])
+    @order.ship!
+    redirect :back
+  end
+
+  def shipped
+    @order = Order.find(params[:id])
+    @order.deliver!
+    redirect :back
+  end
+
+  def return
+    @order = Order.find(params[:id])
+    @order.return_good!
+    redirect :back
+  end
+
 end
