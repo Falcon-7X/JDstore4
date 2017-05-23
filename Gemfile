@@ -70,3 +70,4 @@ end
 
 gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
+gem 'figaro'
