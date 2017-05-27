@@ -11,4 +11,8 @@
       <%= product.title %> ￥ <%= product.price %>
     </div>
   <% end %>
+
+  <div class="text-center">
+    <%= will_paginate @products %>
+  </div>
 </div>
