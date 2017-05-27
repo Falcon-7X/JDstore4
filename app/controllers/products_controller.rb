@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.order("position ASC").paginate(:page => params[:page], :per_page => 4)
+    @products = Product.all.order("position ASC").paginate(:page => params[:page])
   end
 
   def show
