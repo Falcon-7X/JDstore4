@@ -1,0 +1,42 @@
+<!-- no comfortable search result -->
+<% if @products.blank?%>
+<div class="col-md-10 col-md-offset-1">
+  <div class="search-error">
+    <h2>没有符合搜索条件的资料哦！</h2><br />
+    <p><%= link_to("立即查看商品", products_path, class: "btn btn-lg btn-success") %></p>
+  </div>
+</div>
+<!-- /. no comfortable search result -->
+
+<!-- search result -->
+<% else %>
+<div class="col-md-10 col-md-offset-1 product-content">
+  <h1><sapn class="fa fa-search-plus"></sapn> 搜索结果</h1>
+  <!-- product list -->
+  <div class="main-box">
+    <% @products.each do |product| %>
+
+      <div class="col-md-9 col-xs-9 product-box row">
+        <!-- title message -->
+        <div class="info">
+          <div class="info-top">
+            <h3><%= link_to(render_highlight_content(product,@query_string),product_path(product)) %></h3>
+            <span><%= product.created_at.strftime("%Y-%m-%d") %></span>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+  <!-- /.product listing -->
+
+  <!-- will_paginate -->
+  <div class="col-md-10 col-md-offset-1 product-bottom">
+    <div>
+      <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+    </div>
+  </div>
+  <!-- /. will_paginate -->
+</div>
+<% end %>
+<!-- /.search result -->
