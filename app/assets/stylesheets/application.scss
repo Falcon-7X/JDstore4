@@ -18,6 +18,7 @@
  @import "bootstrap";
  @import "font-awesome";
 
+//------回到顶部------
  #gotop {
   margin-bottom: 65px;
   margin-right: 6px;
@@ -31,5 +32,49 @@
 
   background: rgb(221, 221, 221);
   display: none;                 //默认先隐藏掉
-
  }
+
+//------顶部栏------
+.navbar-inverse {
+  margin-bottom: 0;
+  border-radius: 0;
+  font-size: 12px;
+}
+
+//------导航栏------
+.navbar-default {
+  background-color: #f0f0f0;
+  border-color: #f0f0f0;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+//------footer-------
+footer {
+  color: black;
+  position: absolute; //绝对位置
+  bottom: 0;
+  width: 100%; //footer长度
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  border-radius: 0;
+}
+
+footer .footer-below {
+    padding: 25px 0;
+    background-color: #f0f0f0;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+/* end Sticky footer styles
+-------------------------------------------------- */
+//------end footer------
