@@ -77,3 +77,4 @@ gem 'carrierwave-qiniu'
 gem 'qiniu-rs'
 gem 'figaro'
 gem 'airbrake', '~> 5.4'
+gem "intercom-rails"
