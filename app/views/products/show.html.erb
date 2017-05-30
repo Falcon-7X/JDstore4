@@ -1,10 +1,23 @@
 <div class="row">
   <div class="col-md-6">
+    <div style="letter-space: -8px">
     <% if @product.image.present? %>
-      <%= image_tag(@product.image.medium.url, class: "thumbnail wow rollIn", data: {wow_delay: "0.5s"}) %>
+      <% @photos.each_with_index do |p, index| %>
+
+        <% if index == 0 %>
+          <%= image_tag(p.avatar.medium.url, class: "thumbnail wow rollIn", data: {wow_delay: "0.5s"} )%>
+        <% end %>
+
+        <% if index < 4 %>
+          <%= image_tag p.avatar.mini.url %>
+        <% end %>
+
+      <% end %>
+
     <% else %>
       <%= image_tag("http://placehold.it/400x400&text=No Pic", class: "thumbnail") %>
     <% end %>
+    </div>
   </div>
 
   <div class="col-md-6">
