@@ -3,4 +3,7 @@ class Product < ApplicationRecord
   acts_as_list
 
   self.per_page = 20
+
+  has_many :photos
+  accepts_nested_attributes_for :photos
 end
